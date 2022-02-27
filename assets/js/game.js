@@ -1,24 +1,37 @@
-var playerMoney = 10;
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//    * Fight all enemy-robots
+//    * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
 // player variables
+
 
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack =10;
+var playerMoney = 10;
 
 // enemy variables
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+console.log (enemyNames);
+console.log(enemyNames.length)
+
+
+for(var i = 0; i < enemyNames.length; i++) {
+    console.log(enemyNames[i]);
+    console.log(i);
+    console.log(enemyNames[i] + " is at " + i + " index");
+  }
+
+
+
+
+var fight = function(enemyNames) {
     window.alert("Welcome to Robot Gladiators!");
-
-
-};
-
-fight();
-
 var promtFight = window.prompt(" Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.") 
 
 if (promtFight === "Fight" || promtFight === "FIGHT") { 
@@ -26,21 +39,21 @@ if (promtFight === "Fight" || promtFight === "FIGHT") {
     enemyHealth=enemyHealth-playerAttack;
   
   console.log(
-      playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+      playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining.");
 
       if (enemyHealth <= 0) {
-          window.alert( enemyName + " has died!")
+          window.alert( enemyNames + " has died!")
       }
 
       else {
-          window.alert( enemyName + " still has " + enemyHealth + " health left.")
+          window.alert( enemyNames + " still has " + enemyHealth + " health left.")
       }
 
 
       playerHealth = playerHealth - enemyAttack;
 
       console.log(
-          enemyName + " attacked" + playerName + ". " + playerName + " now has " + playerHealth + " health remaining. "
+          enemyNames + " attacked" + playerName + ". " + playerName + " now has " + playerHealth + " health remaining. "
       );
 if( playerHealth<=0) {
     window.alert(playerName + " has died!")
@@ -70,5 +83,10 @@ if(confirmSkip) {
  else {
     window.alert("You need to choose a valid option. Try again!")
 }
+}
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+  }
+
 
 
